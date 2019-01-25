@@ -2,13 +2,17 @@
 
 > Vuejs Build For Rooter-Inc, Licensed &amp; Insured Plumbing Drain &amp; Sewer Specialists
 
-##Install Git
----
+## Install Git
 ### Windows
 https://github.com/git-for-windows/git/releases/download/v2.20.1.windows.1/Git-2.20.1-64-bit.exe
 ### Mac
 https://sourceforge.net/projects/git-osx-installer/files/git-2.20.1-intel-universal-mavericks.dmg/download?use_mirror=autoselect
 ---
+## Clone This Repository
+```bash
+git clone https://github.com:drenfest/rooter.git rooter-inc
+
+```
 ## Install NPM
 ---
 ### Windows
