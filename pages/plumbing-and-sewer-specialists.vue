@@ -1,6 +1,6 @@
 <template>
 	<section id="plumbing-and-sewer-specialists" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "plumbing-and-sewer-specialists",
-				title: "Plumbing and Sewer Specialists",
+				pageTitle: "Plumbing and Sewer Specialists",
 				content: `<div class='container'>
 <div class='row1'>
 <div class='col-xs-12 col-sm-6'></div>
@@ -84,7 +84,14 @@ Rooter, Inc. offers free estimates. We will provide a verbal estimate at no char
 [serviceareareviewcombo city='' state='' checkincount='10' reviewcount='10' zoomlevel='9']
 
 </div>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-north-chicago-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-north-chicago-il",
-				title: "Sewer and Drains Contractor NORTH CHICAGO IL",
+				pageTitle: "Sewer and Drains Contractor NORTH CHICAGO IL",
 				content: `<h1>Your NORTH CHICAGO, IL Sewer & Drains Contractor</h1>
 <h2>NORTH CHICAGO, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our NORTH CHICAGO, IL plumbers. We're the plumbing contractors that the
     NORTH CHICAGO, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='NORTH CHICAGO' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your NORTH CHICAGO, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your NORTH CHICAGO, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

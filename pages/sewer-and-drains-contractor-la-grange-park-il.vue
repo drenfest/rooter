@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-la-grange-park-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-la-grange-park-il",
-				title: "Sewer and Drains Contractor LA GRANGE PARK IL",
+				pageTitle: "Sewer and Drains Contractor LA GRANGE PARK IL",
 				content: `<h1>Your LA GRANGE PARK, IL Sewer & Drains Contractor</h1>
 <h2>LA GRANGE PARK, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our LA GRANGE PARK, IL plumbers. We're the plumbing contractors that the
     LA GRANGE PARK, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='LA GRANGE PARK' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your LA GRANGE PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your LA GRANGE PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

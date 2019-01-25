@@ -1,6 +1,6 @@
 <template>
 	<section id="sump-pumps" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sump-pumps",
-				title: "Sump Pumps",
+				pageTitle: "Sump Pumps",
 				content: `<h1>Sump Pumps</h1>
 
 
@@ -29,7 +29,14 @@ and unsanitary living or working conditions.  Rooter, Inc. can repair or replace
 <h2>BATTERY BACK-UP SUMP PUMP SYSTEM:</h2><p> Just because your sump pump is working properly does not mean you are not at risk of flooding.  Sump Pumps work off of power (electricity).  What happens when the power goes out??  Your sump pump does not turn on to do it's job.  A Battery Back-Up System is the only way to help prevent a flood from happening should you lose power.  Rooter, Inc. can test, repair, replace or install a new Battery Back-Up System for you to help ease your mind.</p>
 
 <h2>FAST SAME DAY SERVICE:</h2><p> A down pump is nothing to put on hold.  Rooter, Inc. can come out on the same day and repair or replace your pump to prevent any unnecessary damage from occuring.</p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

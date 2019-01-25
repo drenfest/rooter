@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-berwyn-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-berwyn-il",
-				title: "Sewer and Drains Contractor BERWYN IL",
+				pageTitle: "Sewer and Drains Contractor BERWYN IL",
 				content: `<h1>Your BERWYN, IL Sewer & Drains Contractor</h1>
 <h2>BERWYN, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our BERWYN, IL plumbers. We're the plumbing contractors that the
     BERWYN, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='BERWYN' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your BERWYN, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your BERWYN, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

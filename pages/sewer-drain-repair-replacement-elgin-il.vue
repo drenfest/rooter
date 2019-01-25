@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-drain-repair-replacement-elgin-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-drain-repair-replacement-elgin-il",
-				title: "Sewer | Drain Repair and Replacement Elgin IL",
+				pageTitle: "Sewer | Drain Repair and Replacement Elgin IL",
 				content: `<h1>Sewer and Drain Repair and Replacement in Elgin, IL</h1>
 <a href='https://rooter-inc.com/dev/wp-content/uploads/2017/10/elgin.jpg'><img src='https://rooter-inc.com/dev/wp-content/uploads/2017/10/elgin-271x300.jpg' alt='' width='271' height='300' class='alignnone size-medium wp-image-455' /></a>
 <h3>Reliable Sewer Services to Fit Your Needs in Elgin, IL</h3>
@@ -45,7 +45,14 @@
 <h4>Why Rooter Inc.?</h4>
 <p>No matter what your drain problem is, Rooter Inc. can help you sort it out. Our extensive experience combined with the latest technology and equipment allows us to tackle any drainage problem with ease. We offer 24/7 emergency draining repair and replacement, as well as the best customer service in town, so give us a call today!</p>
 [serviceareareviewcombo city='ELGIN' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-mchenry-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-mchenry-il",
-				title: "Sewer and Drains Contractor MCHENRY IL",
+				pageTitle: "Sewer and Drains Contractor MCHENRY IL",
 				content: `<h1>Your McHenry, IL Sewer & Drains Contractor</h1>
 <a href='https://rooter-inc.com/dev/wp-content/uploads/2016/02/mchenrry.jpg'><img src='https://rooter-inc.com/dev/wp-content/uploads/2016/02/mchenrry-300x225.jpg' alt='' width='300' height='225' class='alignnone size-medium wp-image-462' /></a>
 <h2>Sewer and Drain Repair and Replacement in Mchenry, IL</h2>
@@ -108,7 +108,14 @@
     our MCHENRY, IL plumbers. We're the plumbing contractors that the
     MCHENRY, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='MCHENRY' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your MCHENRY, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your MCHENRY, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

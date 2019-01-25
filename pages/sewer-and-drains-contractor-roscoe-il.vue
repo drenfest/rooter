@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-roscoe-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-roscoe-il",
-				title: "Sewer and Drains Contractor ROSCOE IL",
+				pageTitle: "Sewer and Drains Contractor ROSCOE IL",
 				content: `<h1>Your ROSCOE, IL Sewer & Drains Contractor</h1>
 <h2>ROSCOE, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our ROSCOE, IL plumbers. We're the plumbing contractors that the
     ROSCOE, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='ROSCOE' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your ROSCOE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your ROSCOE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

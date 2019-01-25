@@ -1,6 +1,6 @@
 <template>
 	<section id="commercial-plumbing-and-sewer" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "commercial-plumbing-and-sewer",
-				title: "Commercial Plumbing and Sewer",
+				pageTitle: "Commercial Plumbing and Sewer",
 				content: `<div class='subheader'>
 <h1>Commercial Plumbing And Sewer</h1>
 </div>
@@ -50,7 +50,14 @@ From leak locating and detection to the repair and replacement of pipes, includi
 
 <p>
     Commercial drain line cleaning of grease without excavation</p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

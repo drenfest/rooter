@@ -1,6 +1,6 @@
 <template>
 	<section id="water-heaters" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "water-heaters",
-				title: "Water Heaters",
+				pageTitle: "Water Heaters",
 				content: `<h1>Water Heaters</h1>
 <h2>SAME DAY HOT WATER:</h2><p> We can help with all of your water heater needs today.</p>
 
@@ -42,7 +42,14 @@ can help protect against rust and faulty safety valves which can cause costly fl
 </p>
 <h2>FLAT-RATE PRICING:</h2> <p>Benefit from our flat rate pricing, as well as our discounts and promotions.  We will provide you with a free estimate before any work is started and the price will be the same no matter how long the job takes.
 </p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

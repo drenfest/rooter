@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-techny-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-techny-il",
-				title: "Sewer and Drains Contractor TECHNY IL",
+				pageTitle: "Sewer and Drains Contractor TECHNY IL",
 				content: `<h1>Your TECHNY, IL Sewer & Drains Contractor</h1>
 <h2>TECHNY, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our TECHNY, IL plumbers. We're the plumbing contractors that the
     TECHNY, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='TECHNY' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your TECHNY, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your TECHNY, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

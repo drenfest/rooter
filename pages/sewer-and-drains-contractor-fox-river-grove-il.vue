@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-fox-river-grove-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-fox-river-grove-il",
-				title: "Sewer and Drains Contractor FOX RIVER GROVE IL",
+				pageTitle: "Sewer and Drains Contractor FOX RIVER GROVE IL",
 				content: `<h1>Your FOX RIVER GROVE, IL Sewer & Drains Contractor</h1>
 <h2>FOX RIVER GROVE, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our FOX RIVER GROVE, IL plumbers. We're the plumbing contractors that the
     FOX RIVER GROVE, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='FOX RIVER GROVE' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your FOX RIVER GROVE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your FOX RIVER GROVE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

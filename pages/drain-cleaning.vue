@@ -1,6 +1,6 @@
 <template>
 	<section id="drain-cleaning" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "drain-cleaning",
-				title: "Drain Cleaning",
+				pageTitle: "Drain Cleaning",
 				content: `<h1>Drain Cleaning</h1>
 <h2>Across the Chicagoland</h2>
 
@@ -50,7 +50,14 @@ any breaks in the drain line that could cause
 
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="guarantee" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "guarantee",
-				title: "Guarantee",
+				pageTitle: "Guarantee",
 				content: `<h1>Plumbing and Sewer Guarantee</h1>
 
 
@@ -46,7 +46,14 @@ after your approval.</p>
 <p>24 HOUR, 7 DAY SUPPORT: Our phone lines are open 24 hours, 7 days a week, 365 days a year and are answered by a live Rooter, Inc. employee every time.  You can be sure that from the first time you call, you will be greeted with friendliness, professionalism, understanding, and knowledge.  Every member of our office staff either currently or has previously worked in the plumbing and sewer industry, meaning you can be sure that whoever you speak with, will provide you with proper and helpful information.</p>
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

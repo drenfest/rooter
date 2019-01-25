@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-westmont-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-westmont-il",
-				title: "Sewer and Drains Contractor WESTMONT IL",
+				pageTitle: "Sewer and Drains Contractor WESTMONT IL",
 				content: `<h1>Your WESTMONT, IL Sewer & Drains Contractor</h1>
 <h2>WESTMONT, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our WESTMONT, IL plumbers. We're the plumbing contractors that the
     WESTMONT, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='WESTMONT' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your WESTMONT, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your WESTMONT, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

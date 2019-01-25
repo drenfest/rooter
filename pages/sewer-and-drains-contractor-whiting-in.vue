@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-whiting-in" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-whiting-in",
-				title: "Sewer and Drains Contractor WHITING IN",
+				pageTitle: "Sewer and Drains Contractor WHITING IN",
 				content: `<h1>Your WHITING, IN Sewer & Drains Contractor</h1>
 <h2>WHITING, IN Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our WHITING, IN plumbers. We're the plumbing contractors that the
     WHITING, IN area calls when they are in need of help.</p>
 [serviceareareviewcombo city='WHITING' state='IN' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your WHITING, IN Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your WHITING, IN Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

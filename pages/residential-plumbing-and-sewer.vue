@@ -1,6 +1,6 @@
 <template>
 	<section id="residential-plumbing-and-sewer" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "residential-plumbing-and-sewer",
-				title: "Residential Plumbing and Sewer",
+				pageTitle: "Residential Plumbing and Sewer",
 				content: `<h1>Residential Plumbing and Sewer</h1>
 
 
@@ -54,7 +54,14 @@ and new gas lines and gas leak safety repairs.</p>
 <h2>PIPE LEAKS AND REPAIRS:</h2>
 
 <p>From leak locating and detection to the repair and replacement of pipes, including full repipes, and frozen pipe issues.</p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

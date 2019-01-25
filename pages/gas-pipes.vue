@@ -1,6 +1,6 @@
 <template>
 	<section id="gas-pipes" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "gas-pipes",
-				title: "Gas Pipes",
+				pageTitle: "Gas Pipes",
 				content: `<h1>Gas Pipes</h1>
 
 
@@ -29,7 +29,14 @@ or business.</p>
 
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

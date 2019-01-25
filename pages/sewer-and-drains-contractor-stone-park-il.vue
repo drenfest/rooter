@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-stone-park-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-stone-park-il",
-				title: "Sewer and Drains Contractor STONE PARK IL",
+				pageTitle: "Sewer and Drains Contractor STONE PARK IL",
 				content: `<h1>Your STONE PARK, IL Sewer & Drains Contractor</h1>
 <h2>STONE PARK, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our STONE PARK, IL plumbers. We're the plumbing contractors that the
     STONE PARK, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='STONE PARK' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your STONE PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your STONE PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

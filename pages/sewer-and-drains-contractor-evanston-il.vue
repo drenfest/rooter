@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-evanston-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-evanston-il",
-				title: "Sewer and Drains Contractor EVANSTON IL",
+				pageTitle: "Sewer and Drains Contractor EVANSTON IL",
 				content: `<h1>Your EVANSTON, IL Sewer & Drains Contractor</h1>
 <h2>EVANSTON, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our EVANSTON, IL plumbers. We're the plumbing contractors that the
     EVANSTON, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='EVANSTON' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your EVANSTON, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your EVANSTON, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

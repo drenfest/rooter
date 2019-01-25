@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-mount-prospect-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-mount-prospect-il",
-				title: "Sewer and Drains Contractor MOUNT PROSPECT IL",
+				pageTitle: "Sewer and Drains Contractor MOUNT PROSPECT IL",
 				content: `<h1>Your MOUNT PROSPECT, IL Sewer & Drains Contractor</h1>
 <h2>MOUNT PROSPECT, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our MOUNT PROSPECT, IL plumbers. We're the plumbing contractors that the
     MOUNT PROSPECT, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='MOUNT PROSPECT' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your MOUNT PROSPECT, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your MOUNT PROSPECT, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-hampshire-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-hampshire-il",
-				title: "Sewer and Drains Contractor HAMPSHIRE IL",
+				pageTitle: "Sewer and Drains Contractor HAMPSHIRE IL",
 				content: `<h1>Your HAMPSHIRE, IL Sewer & Drains Contractor</h1>
 <h2>HAMPSHIRE, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our HAMPSHIRE, IL plumbers. We're the plumbing contractors that the
     HAMPSHIRE, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='HAMPSHIRE' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your HAMPSHIRE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your HAMPSHIRE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

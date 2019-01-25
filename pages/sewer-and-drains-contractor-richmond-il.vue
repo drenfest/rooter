@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-richmond-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-richmond-il",
-				title: "Sewer and Drains Contractor RICHMOND IL",
+				pageTitle: "Sewer and Drains Contractor RICHMOND IL",
 				content: `<h1>Your RICHMOND, IL Sewer & Drains Contractor</h1>
 <h2>RICHMOND, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our RICHMOND, IL plumbers. We're the plumbing contractors that the
     RICHMOND, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='RICHMOND' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your RICHMOND, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your RICHMOND, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

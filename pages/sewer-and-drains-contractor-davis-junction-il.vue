@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-davis-junction-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-davis-junction-il",
-				title: "Sewer and Drains Contractor DAVIS JUNCTION IL",
+				pageTitle: "Sewer and Drains Contractor DAVIS JUNCTION IL",
 				content: `<h1>Your DAVIS JUNCTION, IL Sewer & Drains Contractor</h1>
 <h2>DAVIS JUNCTION, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our DAVIS JUNCTION, IL plumbers. We're the plumbing contractors that the
     DAVIS JUNCTION, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='DAVIS JUNCTION' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your DAVIS JUNCTION, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your DAVIS JUNCTION, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

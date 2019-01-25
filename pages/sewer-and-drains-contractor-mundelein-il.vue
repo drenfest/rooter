@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-mundelein-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-mundelein-il",
-				title: "Sewer and Drains Contractor MUNDELEIN IL",
+				pageTitle: "Sewer and Drains Contractor MUNDELEIN IL",
 				content: `<h1>Your MUNDELEIN, IL Sewer & Drains Contractor</h1>
 <a href='https://rooter-inc.com/dev/wp-content/uploads/2016/02/mundelein.jpg'><img src='https://rooter-inc.com/dev/wp-content/uploads/2016/02/mundelein-300x224.jpg' alt='' width='300' height='224' class='alignnone size-medium wp-image-464' /></a>
 <h2>Sewer and Drain Repair and Replacement in Mundelein, IL</h2>
@@ -108,7 +108,14 @@
     our MUNDELEIN, IL plumbers. We're the plumbing contractors that the
     MUNDELEIN, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='MUNDELEIN' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your MUNDELEIN, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your MUNDELEIN, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

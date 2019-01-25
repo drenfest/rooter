@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-kenosha-wi" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-kenosha-wi",
-				title: "Sewer and Drains Contractor Kenosha WI",
+				pageTitle: "Sewer and Drains Contractor Kenosha WI",
 				content: `<h1>Your Kenosha, WI Sewer &amp; Drains Contractor</h1>
 <h2>Kenosha, WI Sewer &amp; Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -74,7 +74,14 @@
 	Kenosha, WI area calls when they are in need of help.</p>
 [serviceareareviewcombo city='Kenosha' state='WI' checkincount='10' reviewcount='10' zoomlevel='9']
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-bolingbrook-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-bolingbrook-il",
-				title: "Sewer and Drains Contractor BOLINGBROOK IL",
+				pageTitle: "Sewer and Drains Contractor BOLINGBROOK IL",
 				content: `<h1>Your BOLINGBROOK, IL Sewer & Drains Contractor</h1>
 <h2>BOLINGBROOK, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our BOLINGBROOK, IL plumbers. We're the plumbing contractors that the
     BOLINGBROOK, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='BOLINGBROOK' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your BOLINGBROOK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your BOLINGBROOK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

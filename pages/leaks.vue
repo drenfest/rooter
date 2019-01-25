@@ -1,6 +1,6 @@
 <template>
 	<section id="leaks" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "leaks",
-				title: "Leaks",
+				pageTitle: "Leaks",
 				content: `<h1>Leaks</h1>
 
 
@@ -26,7 +26,14 @@
 
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

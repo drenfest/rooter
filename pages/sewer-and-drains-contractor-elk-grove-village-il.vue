@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-elk-grove-village-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-elk-grove-village-il",
-				title: "Sewer and Drains Contractor ELK GROVE VILLAGE IL",
+				pageTitle: "Sewer and Drains Contractor ELK GROVE VILLAGE IL",
 				content: `<h1>Your ELK GROVE VILLAGE, IL Sewer & Drains Contractor</h1>
 <h2>ELK GROVE VILLAGE, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our ELK GROVE VILLAGE, IL plumbers. We're the plumbing contractors that the
     ELK GROVE VILLAGE, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='ELK GROVE VILLAGE' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your ELK GROVE VILLAGE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your ELK GROVE VILLAGE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="faucets-and-sinks" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "faucets-and-sinks",
-				title: "Faucets and Sinks",
+				pageTitle: "Faucets and Sinks",
 				content: `<h1>Faucet and Sinks </h1>
 
 <h2>FAUCET AND SINK REPAIR S INCLUDE:</h2>
@@ -36,7 +36,14 @@
 
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

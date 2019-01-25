@@ -1,6 +1,6 @@
 <template>
 	<section id="residential-and-commercial-plumbing" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "residential-and-commercial-plumbing",
-				title: "Residential and Commercial Plumbing",
+				pageTitle: "Residential and Commercial Plumbing",
 				content: `<h1>Residential and Commercial Plumbing</h1>
 
 
@@ -52,7 +52,14 @@ clogged with dirt, leaves and debris. Rooter,
 Inc. can clear the clog and diagnose and repair
 any breaks in the drain line that could cause
 future problems.</p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-des-plaines-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-des-plaines-il",
-				title: "Sewer and Drains Contractor DES PLAINES IL",
+				pageTitle: "Sewer and Drains Contractor DES PLAINES IL",
 				content: `<h1>Your DES PLAINES, IL Sewer & Drains Contractor</h1>
 <h2>DES PLAINES, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our DES PLAINES, IL plumbers. We're the plumbing contractors that the
     DES PLAINES, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='DES PLAINES' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your DES PLAINES, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your DES PLAINES, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-union-grove-wi" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-union-grove-wi",
-				title: "Sewer and Drains Contractor UNION GROVE WI",
+				pageTitle: "Sewer and Drains Contractor UNION GROVE WI",
 				content: `<h1>Your UNION GROVE, WI Sewer & Drains Contractor</h1>
 <h2>UNION GROVE, WI Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our UNION GROVE, WI plumbers. We're the plumbing contractors that the
     UNION GROVE, WI area calls when they are in need of help.</p>
 [serviceareareviewcombo city='UNION GROVE' state='WI' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your UNION GROVE, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your UNION GROVE, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

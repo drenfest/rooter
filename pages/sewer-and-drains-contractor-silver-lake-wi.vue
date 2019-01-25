@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-silver-lake-wi" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-silver-lake-wi",
-				title: "Sewer and Drains Contractor SILVER LAKE WI",
+				pageTitle: "Sewer and Drains Contractor SILVER LAKE WI",
 				content: `<h1>Your SILVER LAKE, WI Sewer & Drains Contractor</h1>
 <h2>SILVER LAKE, WI Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our SILVER LAKE, WI plumbers. We're the plumbing contractors that the
     SILVER LAKE, WI area calls when they are in need of help.</p>
 [serviceareareviewcombo city='SILVER LAKE' state='WI' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your SILVER LAKE, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your SILVER LAKE, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-springfield-wi" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-springfield-wi",
-				title: "Sewer and Drains Contractor SPRINGFIELD WI",
+				pageTitle: "Sewer and Drains Contractor SPRINGFIELD WI",
 				content: `<h1>Your SPRINGFIELD, WI Sewer & Drains Contractor</h1>
 <h2>SPRINGFIELD, WI Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our SPRINGFIELD, WI plumbers. We're the plumbing contractors that the
     SPRINGFIELD, WI area calls when they are in need of help.</p>
 [serviceareareviewcombo city='SPRINGFIELD' state='WI' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your SPRINGFIELD, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your SPRINGFIELD, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

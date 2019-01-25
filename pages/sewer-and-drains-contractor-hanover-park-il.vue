@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-hanover-park-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-hanover-park-il",
-				title: "Sewer and Drains Contractor HANOVER PARK IL",
+				pageTitle: "Sewer and Drains Contractor HANOVER PARK IL",
 				content: `<h1>Your HANOVER PARK, IL Sewer & Drains Contractor</h1>
 <h2>HANOVER PARK, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our HANOVER PARK, IL plumbers. We're the plumbing contractors that the
     HANOVER PARK, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='HANOVER PARK' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your HANOVER PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your HANOVER PARK, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

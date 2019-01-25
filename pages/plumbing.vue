@@ -1,6 +1,6 @@
 <template>
 	<section id="plumbing" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "plumbing",
-				title: "Plumbing",
+				pageTitle: "Plumbing",
 				content: `<h1>Plumbing</h1>
 
 
@@ -55,7 +55,14 @@ leak safety repairs.
 
 
 `,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -8,9 +8,16 @@
 		data: function(){
 			return {
 				pageName: "",
-				title: "Test Page",
+				pageTitle: "Test Page",
 				content: ``,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

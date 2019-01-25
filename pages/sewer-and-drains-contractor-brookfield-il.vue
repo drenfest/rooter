@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-brookfield-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-brookfield-il",
-				title: "Sewer and Drains Contractor BROOKFIELD IL",
+				pageTitle: "Sewer and Drains Contractor BROOKFIELD IL",
 				content: `<h1>Your BROOKFIELD, IL Sewer & Drains Contractor</h1>
 <h2>BROOKFIELD, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our BROOKFIELD, IL plumbers. We're the plumbing contractors that the
     BROOKFIELD, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='BROOKFIELD' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your BROOKFIELD, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your BROOKFIELD, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

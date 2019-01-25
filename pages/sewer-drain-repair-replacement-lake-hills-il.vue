@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-drain-repair-replacement-lake-hills-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-drain-repair-replacement-lake-hills-il",
-				title: "Sewer | Drain Repair and Replacement Lake In The Hills IL",
+				pageTitle: "Sewer | Drain Repair and Replacement Lake In The Hills IL",
 				content: `<h1>Sewer and Drain Repair and Replacement in Lake In The Hills, IL</h1>
 <a href='https://rooter-inc.com/dev/wp-content/uploads/2017/10/lake-in-the-hills.jpg'><img src='https://rooter-inc.com/dev/wp-content/uploads/2017/10/lake-in-the-hills-300x300.jpg' alt='' width='300' height='300' class='alignnone size-medium wp-image-460' /></a>
 <h3>Reliable Sewer Services to Fit Your Needs in Lake In The Hills, IL</h3>
@@ -45,7 +45,14 @@
 <h4>Why Rooter Inc.?</h4>
 <p>No matter what your drain problem is, Rooter Inc. can help you sort it out. Our extensive experience combined with the latest technology and equipment allows us to tackle any drainage problem with ease. We offer 24/7 emergency draining repair and replacement, as well as the best customer service in town, so give us a call today!</p>
 [serviceareareviewcombo city='Lake In The Hills' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-crest-hill-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-crest-hill-il",
-				title: "Sewer and Drains Contractor CREST HILL IL",
+				pageTitle: "Sewer and Drains Contractor CREST HILL IL",
 				content: `<h1>Your CREST HILL, IL Sewer & Drains Contractor</h1>
 <h2>CREST HILL, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our CREST HILL, IL plumbers. We're the plumbing contractors that the
     CREST HILL, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='CREST HILL' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your CREST HILL, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your CREST HILL, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

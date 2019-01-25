@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-ringwood-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-ringwood-il",
-				title: "Sewer and Drains Contractor RINGWOOD IL",
+				pageTitle: "Sewer and Drains Contractor RINGWOOD IL",
 				content: `<h1>Your RINGWOOD, IL Sewer & Drains Contractor</h1>
 <h2>RINGWOOD, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our RINGWOOD, IL plumbers. We're the plumbing contractors that the
     RINGWOOD, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='RINGWOOD' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your RINGWOOD, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your RINGWOOD, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

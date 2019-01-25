@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-lake-geneva-wi" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-lake-geneva-wi",
-				title: "Sewer and Drains Contractor LAKE GENEVA WI",
+				pageTitle: "Sewer and Drains Contractor LAKE GENEVA WI",
 				content: `<h1>Your LAKE GENEVA, WI Sewer & Drains Contractor</h1>
 <h2>LAKE GENEVA, WI Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our LAKE GENEVA, WI plumbers. We're the plumbing contractors that the
     LAKE GENEVA, WI area calls when they are in need of help.</p>
 [serviceareareviewcombo city='LAKE GENEVA' state='WI' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your LAKE GENEVA, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your LAKE GENEVA, WI Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

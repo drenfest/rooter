@@ -1,6 +1,6 @@
 <template>
 	<section id="showers-and-tubs" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "showers-and-tubs",
-				title: "Showers and Tubs",
+				pageTitle: "Showers and Tubs",
 				content: `<h1>Showers and Tubs</h1>
 
 
@@ -35,7 +35,14 @@ replacing units to fixing leaks or clogs, Rooter, Inc.
 <h2>LOW WATER PRESSURE</h2>
 
 <p>If your shower or bathroom sink faucet is just a drizzle, Rooter, Inc. can diagnose the root of the problem.  We also have ways to help boost your water pressure for a shower you can enjoy.</p>`,
-				description: ""
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "" },
+						]
+					}
+				}
 			}
 	}
 	}

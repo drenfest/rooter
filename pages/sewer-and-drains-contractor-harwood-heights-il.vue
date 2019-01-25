@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-harwood-heights-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-harwood-heights-il",
-				title: "Sewer and Drains Contractor HARWOOD HEIGHTS IL",
+				pageTitle: "Sewer and Drains Contractor HARWOOD HEIGHTS IL",
 				content: `<h1>Your HARWOOD HEIGHTS, IL Sewer & Drains Contractor</h1>
 <h2>HARWOOD HEIGHTS, IL Sewer & Drains, Sewer and Drain Repair</h2>
 <p> When it comes
@@ -73,7 +73,14 @@
     our HARWOOD HEIGHTS, IL plumbers. We're the plumbing contractors that the
     HARWOOD HEIGHTS, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='HARWOOD HEIGHTS' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your HARWOOD HEIGHTS, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your HARWOOD HEIGHTS, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}

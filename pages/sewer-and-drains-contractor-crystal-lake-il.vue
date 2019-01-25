@@ -1,6 +1,6 @@
 <template>
 	<section id="sewer-and-drains-contractor-crystal-lake-il" class="content-wrapper">
-		{{ content }}
+		<div v-html="content"></div>
 	</section>
 </template>
 <script>
@@ -8,7 +8,7 @@
 		data: function(){
 			return {
 				pageName: "sewer-and-drains-contractor-crystal-lake-il",
-				title: "Sewer and Drains Contractor CRYSTAL LAKE IL",
+				pageTitle: "Sewer and Drains Contractor CRYSTAL LAKE IL",
 				content: `<h1>Your CRYSTAL LAKE, IL Sewer & Drains Contractor</h1>
 <a href='https://rooter-inc.com/dev/wp-content/uploads/2016/02/crystal-lake.jpg'><img src='https://rooter-inc.com/dev/wp-content/uploads/2016/02/crystal-lake-300x300.jpg' alt='' width='300' height='300' class='alignnone size-medium wp-image-458' /></a>
 <h2>Sewer and Drain Repair and Replacement in Crystal Lake, IL</h2>
@@ -108,7 +108,14 @@
     our CRYSTAL LAKE, IL plumbers. We're the plumbing contractors that the
     CRYSTAL LAKE, IL area calls when they are in need of help.</p>
 [serviceareareviewcombo city='CRYSTAL LAKE' state='IL' checkincount='10' reviewcount='10' zoomlevel='9']`,
-				description: "Your CRYSTAL LAKE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting."
+				head() {
+					return{
+						title: "this.pageTitle",
+						meta:[
+							{ hid: 'description', name: 'description', content: "Your CRYSTAL LAKE, IL Sewer & Drains Contractor. Storm Drains, Leaks, Repair, cleaning, and hydro jetting." },
+						]
+					}
+				}
 			}
 	}
 	}
