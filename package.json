@@ -1,0 +1,21 @@
+{
+  "name": "rooter",
+  "version": "1.0.0",
+  "description": "Licensed &amp; Insured Plumbing Drain &amp; Sewer Specialists",
+  "author": "Gary Hunt",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
