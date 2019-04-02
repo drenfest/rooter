@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div id="side-drawer-wrapper">
     <button aria-label="Main Menu Toggle Button" id="side-drawer-button" :class="{'open': drawerToggled}" v-on:click="onToggleDrawer()">
       <hr class="top-line"/>
       <hr class="middle-line"/>
       <hr class="bottom-line"/>
     </button>
     <aside id="side-drawer" :class="{'open': drawerToggled}">
-      <header><h2 class="main-nav-title">(847) 426-1122</h2><h4 class="main-nav-subtitle">Call For A Free Estimate</h4></header>
+      <header><h2><a href="tel:+1(847)426-1122" class="main-nav-title">(847) 426-1122</a></h2><h4 class="main-nav-subtitle">Call For A Free Estimate</h4></header>
       <main>
         <nav id="main-nav">
           <ul class="container">
@@ -53,7 +53,7 @@
     padding: 1px 2px 20px 2px;
   }
   #side-drawer main{
-    padding: 10px 0;
+    padding: 10px 5px;
   }
   #side-drawer-button {
     position: absolute;
@@ -106,6 +106,9 @@
     height:2px;
   }
   @media screen and (min-width:850px){
+    #side-drawer-wrapper{
+      display:none;
+    }
     #side-drawer-button{
       display:none;
     }
@@ -113,9 +116,12 @@
 
   /*--------------------------SIDE DRAWER BUTTON END----------------------*/
   /*--------------------------SIDE DRAWER START----------------------*/
-
+  #side-drawer-wrapper{
+    z-index: 999;
+    position: relative;
+  }
   aside {
-    position: fixed;
+    position: absolute;
     z-index: 2;
     top: 0;
     right: -100%;
@@ -125,16 +131,19 @@
     box-shadow: -4px 2px 8px rgba(0, 0, 0, .26);
     text-align: center;
     transition: all .5s ease-out;
+    overflow-y: scroll;
   }
 
   aside.open {
     right: 0;
   }
-
+  aside>header>h2{
+    margin-top: 1rem;
+  }
   .main-nav-title {
     color: white;
-    margin-top: 1rem;
     font-weight:400;
+    text-decoration:none;
   }
   .main-nav-subtitle {
     color: #9a9a9a;

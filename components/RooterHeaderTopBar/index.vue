@@ -270,13 +270,13 @@
           },
           {
             id: 4,
-            path: '/commercial-plumbing',
+            path: '/commercial-plumbing-and-sewer',
             text: 'Commercial',
             title: 'See A List Of Rooter Incs Commercial Services'
           },
           {
             id: 5,
-            path: '/residential-plumbing',
+            path: '/residential-plumbing-and-sewer',
             text: 'Residential',
             title: 'See Our Residential Plumbing List'
           }

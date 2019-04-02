@@ -5,17 +5,24 @@
     <div class="bottom-right">
       <nav class="bottom-menu">
         <ul class="flex-menu">
-            <template v-for="dd of routes">
-              <li class="menu-item menu-item-has-children">
-              <a href.prevent="#" :title="dd.title">{{ dd.title }}</a>
-              <ul class="submenu">
-                <template v-for="child of dd.children">
-                  <li class="menu-item">
-                    <nuxt-link :to="child.path" :title="child.title">{{ child.text }}</nuxt-link>
-                  </li>
-                </template>
-              </ul>
-          </li>
+            <template v-for="route of routes">
+              <template v-if="route.children.length < 1">
+                <li class="menu-item">
+                  <nuxt-link :to="route.path" :title="route.title">{{ route.text }}</nuxt-link>
+                </li>
+              </template>
+              <template v-else="">
+                <li class="menu-item menu-item-has-children">
+                  <nuxt-link :to="route.path" :title="route.title">{{ route.text }}</nuxt-link>
+                  <ul class="submenu">
+                    <template v-for="child of route.children">
+                      <li class="menu-item">
+                        <nuxt-link :to="child.path" :title="child.title">{{ child.text }}</nuxt-link>
+                      </li>
+                    </template>
+                  </ul>
+                </li>
+              </template>
             </template>
         </ul>
 
@@ -36,34 +43,61 @@ export default {
       routes: [
         {
           id: 1,
-          path: '/about-us',
-          text: 'About Us',
-          title: 'About Rooter Inc'
+          path: '/drain-cleaning',
+          text: 'Drain Cleaning',
+          title: 'Plumbing Service Drain Cleaning',
+          children:[]
         },
         {
           id: 2,
-          path: '/guarantee',
-          text: 'Guarantee',
-          title: 'Rooter Incs Guarantee'
-        },
-        {
+          path: '/faucets-and-sinks',
+          text: 'Faucets & Sinks',
+          title: 'Plumbing Service Faucets & Sinks',
+          children:[]
+        },{
           id: 3,
-          path: '/plumbing',
-          text: 'Plumbing',
-          title: 'Read More About Our Plumbing Installation &amp; Repair Services'
-        },
-        {
+          path: '/gas-pipes',
+          text: 'Gas Pipes',
+          title: 'Plumbing Service Gas Pipes',
+          children:[]
+        },{
           id: 4,
-          path: '/commercial-plumbing',
-          text: 'Commercial',
-          title: 'See A List Of Rooter Incs Commercial Services'
-        },
-        {
+          path: '/leaks',
+          text: 'Pipe Breaks & Leaks',
+          title: 'Plumbing Service Pipe Breaks & Leaks',
+          children:[]
+        },{
           id: 5,
-          path: '/residential-plumbing',
-          text: 'Residential',
-          title: 'See Our Residential Plumbing List'
-        }
+          path: '/sewage-pumps',
+          text: 'Sewage Pumps',
+          title: 'Plumbing Service Sewage Pumps',
+          children:[]
+        },{
+          id: 6,
+          path: '/showers-and-tubs',
+          text: 'Showers & Tubs',
+          title: 'Plumbing Service Showers & Tubs',
+          children:[]
+        },{
+          id: 7,
+          path: '/sump-pumps',
+          text: 'Sump Pumps',
+          title: 'Plumbing Service Sumps Pumps',
+          children:[]
+        },{
+          id: 8,
+          path: '/toilets',
+          text: 'Toilets',
+          title: 'Plumbing Service Toilets',
+          children:[]
+        },{
+          id: 9,
+          path: '/water-heaters',
+          text: 'Water Heaters',
+          title: 'Plumbing Service Water Heaters',
+          children:[]
+        },
+
       ],
       phoneNumber: {
         link: "tel:+18474261122",
@@ -93,14 +127,11 @@ export default {
   }
 
   @media screen and (min-width:850px){
-    .logo-offset{
-      width:300px;
-    }
     .bottom-bar{
       display:flex;
-      justify-content:space-around;
       align-items:center;
       align-content:stretch;
+      max-width:100%;
     }
     .bottom-right{
       margin: auto auto auto 0  ;
@@ -113,16 +144,18 @@ export default {
       justify-content: space-between;
     }
     .bottom-bar .bottom-menu {
-      display: inline-flex;
-      justify-content: flex-start;
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     .bottom-bar .phone-number{
-      display: inline-flex;
+      display: flex;
       align-content:flex-end;
       align-items:flex-end;
     }
     .bottom-menu > .flex-menu{
-      justify-content:flex-start;
+      justify-content:center;
       width:100%;
     }
     .bottom-menu > .flex-menu a{
@@ -142,6 +175,27 @@ export default {
       font-size:35px;
       color:#C24127;
       margin-top:-3px;
+    }
+    .bottom-menu ul, .bottom-menu li{
+      list-style:none;
+      margin: auto;
+      padding: 10px 0 5px;
+    }
+    .bottom-menu > .flex-menu{
+      flex-wrap:wrap;
+      padding:10px;
+    }
+    .bottom-menu > .flex-menu a{
+      text-decoration:none;
+      text-align:center;
+      transition: all 300ms ease;
+    }
+    .bottom-menu > .flex-menu a:hover{
+      color: #C24127;
+      transition: all 300ms ease;
+    }
+    .bottom-menu > .flex-menu li{
+      flex: 1 1 130px;
     }
   }
 

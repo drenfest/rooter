@@ -1,12 +1,43 @@
 <template>
+  <section id="page">
+    <rooter-hero
+      :heroImage="hero.heroImage"
+      :heroTitle="hero.heroTitle"
+      :heroBigText= "hero.heroBigText"
+      :heroText= "hero.heroText"
+      :heroLink= "hero.heroLink"
+      :heroLinkTitle= "hero.heroLinkTitle"
+      :heroLinkText="hero.heroLinkText"></rooter-hero>
+    <rooter-services></rooter-services>
+    <rooter-why-us></rooter-why-us>
+    <main id="content-section">
 	<section id="residential-and-commercial-plumbing" class="content-wrapper">
 		<div v-html="content"></div>
 	</section>
+    </main>
+  </section>
 </template>
 <script>
-	export default {
-		data: function(){
+import RooterHero from '@/components/RooterHero/'
+import RooterServices from '@/components/RooterServices/'
+import RooterWhyUs from '@/components/RooterWhyUs/'
+export default {
+  components: {
+    RooterHero,
+    RooterServices,
+    RooterWhyUs,
+  },
+		data: function() {
 			return {
+        hero:{
+          heroImage:'background-image:url(/hero-house.jpg)',
+          heroTitle: 'Dependable ChicagoLand',
+          heroBigText: 'Plumbers',
+          heroText: 'When it comes to great service for your plumbing and sewer needs you can count on Rooter Inc!',
+          heroLink: '/contact',
+          heroLinkTitle: 'Go To Contact Page',
+          heroLinkText: 'Contact Us'
+        },
 				pageName: "residential-and-commercial-plumbing",
 				pageTitle: "Residential and Commercial Plumbing",
 				content: `<h1>Residential and Commercial Plumbing</h1>

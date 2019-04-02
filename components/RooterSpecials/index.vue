@@ -1,23 +1,18 @@
 <template>
-  <div id="specials-section">
-    <h3 class="specials-title">
+  <section id="specials-section">
+    <h2 class="specials-title">
       Current Specials
-    </h3>
-    <div class="row">
-      <div v-for="sbox of sboxes" v-on:click="returnId(sbox.id)" :key="sbox.id" class="col-1-3 sbox">
-        <div id="container">
-          <div class="coupontop">
-            <img :src="sbox.sBImage" :alt="sbox.sBAltText">
-          </div>
-          <div class="couponbottom">
-            <h4>{{  sbox.sBMoney }}</h4>
-            <p>{{  sbox.sBTitle }}</p>
-            <p class="couponexpire">{{  sbox.sBExpires }}</p>
-          </div>
-        </div>
+    </h2>
+    <div class="sboxes">
+      <div v-for="sbox of sboxes" v-on:click="returnId(sbox.id)" :key="sbox.id" class="sbox">
+        <div class="couponbottom">
+          <h4>{{  sbox.sBMoney }}</h4>
+          <p>{{  sbox.sBTitle }}</p>
+          <p class="couponexpire">{{  sbox.sBExpires }}</p>
         </div>
       </div>
     </div>
+    </section>
 </template>
 <script>
   export default {
@@ -28,7 +23,6 @@
         sboxes: [
           {
             id: 1,
-            sBImage: '/truck-lineup.jpg',
             sBAltText: 'truck logo',
             sBMoney: '$50 Off',
             sBTitle: 'HYDRO-JETTING',
@@ -36,7 +30,6 @@
           },
           {
             id: 2,
-            sBImage: '/truck-lineup.jpg',
             sBAltText: 'truck logo',
             sBMoney: '$50 Off',
             sBTitle: 'HYDRO-JETTING',
@@ -44,7 +37,6 @@
           },
           {
             id: 3,
-            sBImage: '/truck-lineup.jpg',
             sBAltText: 'truck logo',
             sBMoney: '$50 Off',
             sBTitle: 'HYDRO-JETTING',
@@ -65,8 +57,17 @@
     font-family: 'Open Sans', sans-serif;
     color: #3b3b3b;
   }
-  #container {
-    max-width: 600px;
+  #specials-section{
+    max-width:1140px;
+    margin: 0 auto 3.5em;
+  }
+  .sboxes{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .sbox {
+    margin: .5em;
+    flex: 1 1 auto;
   }
   .coupontop {
     margin-bottom: 10px;
@@ -81,21 +82,14 @@
     border-top-right-radius: 15px;
   }
   .couponbottom {
-    border-left:    2px dashed #365dab;
-    border-right:  2px dashed #365dab;
-    border-bottom: 2px dashed #365dab;
+    border: 2px dashed #365dab;
     padding: 10px 20px 30px;
-    -webkit-border-bottom-right-radius: 15px;
-    -webkit-border-bottom-left-radius: 15px;
-    -moz-border-radius-bottomright: 15px;
-    -moz-border-radius-bottomleft: 15px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-radius: 15px;
   }
   .couponbottom h4 {
     text-align: center;
     font-weight: 800;
-    font-size: 60px;
+    font-size: 40px;
     line-height: 1;
     color: #365dab;
     margin:0px;
@@ -110,6 +104,13 @@
     padding-bottom: 3px;
   }
   p.couponexpire {
-    font-size: 18px;
+    font-size: 16px;
+    color:#C24127;
+  }
+  @media screen and (min-width:768px){
+    .sboxes{
+      justify-content:space-between;
+      flex-wrap:nowrap;
+    }
   }
 </style>
